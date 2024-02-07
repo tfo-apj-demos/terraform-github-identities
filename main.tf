@@ -6,13 +6,7 @@ locals {
 }
 
 # Lookup our GitHub org for teams and memberships
-data "github_organization_teams" "team_se" {
-  root_teams_only = true
-  summary_only = false
-  results_per_page = 20
+data "github_team" "this" {
+  for_each = toset(var.github_teams)
+  slug = each.value
 }
-
-# data "github_user" "team_se" {
-#   for_each = toset(local.github_usernames)
-#   username = each.value
-# }
