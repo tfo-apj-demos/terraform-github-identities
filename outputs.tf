@@ -1,5 +1,5 @@
 output "github_usernames" {
-  value = [
+  value = flatten([
     for team in data.github_team.this : team.members
-  ]
+  ])
 }
