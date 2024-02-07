@@ -8,7 +8,7 @@ locals {
 # Lookup our GitHub org for teams and memberships
 data "github_organization_teams" "team_se" {
   root_teams_only = true
-  summary_only = false
+  summary_only = true
   results_per_page = 20
 }
 
